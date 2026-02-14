@@ -1,114 +1,37 @@
-### Aarogya India API Tests
-### Use this file with REST Client extension in VS Code or IntelliJ HTTP Client
-
-@baseUrl = http://localhost:8080
-
 ### 1. Request OTP
-POST {{baseUrl}}/api/mobile/auth/request-otp
+POST http://localhost:8080/api/mobile/auth/request-otp
 Content-Type: application/json
 
 {
-  "mobileno": "7838082254"
+  "mobileno": "9876543210"
 }
 
-### 2. Verify OTP
-POST {{baseUrl}}/api/mobile/auth/verify-otp
+### 2. Verify OTP (Use OTP from Step 1 response)
+POST http://localhost:8080/api/mobile/auth/verify-otp
 Content-Type: application/json
 
 {
-  "mobileno": "7838082254",
-  "otp": "123456"
+  "mobileno": "9876543210",
+  "otp": "REPLACE_WITH_OTP_FROM_STEP_1"
 }
 
-### 3. Get Profile
-GET {{baseUrl}}/api/mobile/profile/7838082254
-
-### 4. Update Profile
-PUT {{baseUrl}}/api/mobile/profile
+### 3. Resend OTP
+POST http://localhost:8080/api/mobile/auth/resend-otp
 Content-Type: application/json
 
 {
-  "mobileno": "7838082254",
-  "name": "John Doe",
-  "email": "john.doe@yopmail.com",
-  "gender": "MALE"
+  "mobileno": "9876543210"
 }
 
-### 5. Get All Addresses
-GET {{baseUrl}}/api/mobile/addresses/7838082254
+### 4. Validate Token (Use token from Step 2 response)
+POST http://localhost:8080/api/mobile/auth/validate-token
+Authorization: Bearer REPLACE_WITH_TOKEN_FROM_STEP_2
 
-### 6. Add New Address
-POST {{baseUrl}}/api/mobile/addresses
-Content-Type: application/json
+### 5. Get Orders
+GET http://localhost:8080/api/mobile/orders/9876543210
 
-{
-  "mobileno": "7838082254",
-  "locality": "B-429, ABC colony",
-  "landmark": "Temple",
-  "pincode": "201301",
-  "city": "Noida",
-  "state": "Uttar pradesh",
-  "addressType": "HOME"
-}
+### 6. Get Order Details
+GET http://localhost:8080/api/mobile/orders/details/123911
 
-### 7. Update Address
-PUT {{baseUrl}}/api/mobile/addresses/1
-Content-Type: application/json
-
-{
-  "mobileno": "7838082254",
-  "locality": "Updated Address",
-  "landmark": "New Landmark",
-  "pincode": "201301",
-  "city": "Noida",
-  "state": "Uttar pradesh",
-  "addressType": "HOME"
-}
-
-### 8. Delete Address
-DELETE {{baseUrl}}/api/mobile/addresses/1
-
-### 9. Get User Orders
-GET {{baseUrl}}/api/mobile/orders/7838082254
-
-### 10. Get Order Details
-GET {{baseUrl}}/api/mobile/orders/details/123911
-
-### 11. Track Order
-GET {{baseUrl}}/api/mobile/orders/track/123911
-
-### 12. Reorder
-POST {{baseUrl}}/api/mobile/orders/reorder/123911
-
-### 13. Get Product Reviews
-GET {{baseUrl}}/api/mobile/reviews/product/1
-
-### 14. Submit Review
-POST {{baseUrl}}/api/mobile/reviews
-Content-Type: application/json
-
-{
-  "mobileno": "7838082254",
-  "orderId": "123911",
-  "productId": 1,
-  "rating": 5,
-  "title": "Just awesome",
-  "description": "Exploring ways to increase your strength and stamina? Switch to the Ayurvedic goodness of Arigya India Shilajit.",
-  "imageUrl": "https://example.com/image.jpg"
-}
-
-### 15. Get Chat History
-GET {{baseUrl}}/api/mobile/support/chat/7838082254
-
-### 16. Send Chat Message
-POST {{baseUrl}}/api/mobile/support/chat
-Content-Type: application/json
-
-{
-  "mobileno": "7838082254",
-  "message": "Products",
-  "messageType": "TEXT"
-}
-
-### 17. Get Dashboard
-GET {{baseUrl}}/api/mobile/dashboard/7838082254
+### 7. Track Order
+GET http://localhost:8080/api/mobile/orders/track/123911
