@@ -16,10 +16,10 @@ public class ReviewController {
     static {
         reviewStore.add(new Review(1L, "Rahul Kumar", 5, "Just awesome", 
             "Exploring ways to increase your strength and stamina? Switch to the Ayurvedic goodness of Arigya India Shilajit.",
-            "https://example.com/review1.jpg", 1L));
+            "https://www.freepik.com/premium-photo/medicine_4544749.htm#fromView=keyword&page=1&position=5&uuid=20ceed16-71da-45a3-b653-68f124e0c6f7&query=Medicine+png", 1L));
         reviewStore.add(new Review(2L, "Priya Singh", 4, "Good product", 
             "Very effective product. Noticed improvement in energy levels.",
-            "https://example.com/review2.jpg", 1L));
+            "https://www.freepik.com/premium-photo/medicine_4544749.htm#fromView=keyword&page=1&position=5&uuid=20ceed16-71da-45a3-b653-68f124e0c6f7&query=Medicine+png", 1L));
     }
 
     @GetMapping("/product/{productId}")
