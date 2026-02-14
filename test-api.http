@@ -1,0 +1,114 @@
+### Aarogya India API Tests
+### Use this file with REST Client extension in VS Code or IntelliJ HTTP Client
+
+@baseUrl = http://localhost:8080
+
+### 1. Request OTP
+POST {{baseUrl}}/api/mobile/auth/request-otp
+Content-Type: application/json
+
+{
+  "mobileno": "7838082254"
+}
+
+### 2. Verify OTP
+POST {{baseUrl}}/api/mobile/auth/verify-otp
+Content-Type: application/json
+
+{
+  "mobileno": "7838082254",
+  "otp": "123456"
+}
+
+### 3. Get Profile
+GET {{baseUrl}}/api/mobile/profile/7838082254
+
+### 4. Update Profile
+PUT {{baseUrl}}/api/mobile/profile
+Content-Type: application/json
+
+{
+  "mobileno": "7838082254",
+  "name": "John Doe",
+  "email": "john.doe@yopmail.com",
+  "gender": "MALE"
+}
+
+### 5. Get All Addresses
+GET {{baseUrl}}/api/mobile/addresses/7838082254
+
+### 6. Add New Address
+POST {{baseUrl}}/api/mobile/addresses
+Content-Type: application/json
+
+{
+  "mobileno": "7838082254",
+  "locality": "B-429, ABC colony",
+  "landmark": "Temple",
+  "pincode": "201301",
+  "city": "Noida",
+  "state": "Uttar pradesh",
+  "addressType": "HOME"
+}
+
+### 7. Update Address
+PUT {{baseUrl}}/api/mobile/addresses/1
+Content-Type: application/json
+
+{
+  "mobileno": "7838082254",
+  "locality": "Updated Address",
+  "landmark": "New Landmark",
+  "pincode": "201301",
+  "city": "Noida",
+  "state": "Uttar pradesh",
+  "addressType": "HOME"
+}
+
+### 8. Delete Address
+DELETE {{baseUrl}}/api/mobile/addresses/1
+
+### 9. Get User Orders
+GET {{baseUrl}}/api/mobile/orders/7838082254
+
+### 10. Get Order Details
+GET {{baseUrl}}/api/mobile/orders/details/123911
+
+### 11. Track Order
+GET {{baseUrl}}/api/mobile/orders/track/123911
+
+### 12. Reorder
+POST {{baseUrl}}/api/mobile/orders/reorder/123911
+
+### 13. Get Product Reviews
+GET {{baseUrl}}/api/mobile/reviews/product/1
+
+### 14. Submit Review
+POST {{baseUrl}}/api/mobile/reviews
+Content-Type: application/json
+
+{
+  "mobileno": "7838082254",
+  "orderId": "123911",
+  "productId": 1,
+  "rating": 5,
+  "title": "Just awesome",
+  "description": "Exploring ways to increase your strength and stamina? Switch to the Ayurvedic goodness of Arigya India Shilajit.",
+  "imageUrl": "https://example.com/image.jpg"
+}
+
+### 15. Get Chat History
+GET {{baseUrl}}/api/mobile/support/chat/7838082254
+
+### 16. Send Chat Message
+POST {{baseUrl}}/api/mobile/support/chat
+Content-Type: application/json
+
+{
+  "mobileno": "7838082254",
+  "message": "Products",
+  "messageType": "TEXT"
+}
+
+### 17. Get Dashboard
+GET {{baseUrl}}/api/mobile/dashboard/7838082254
